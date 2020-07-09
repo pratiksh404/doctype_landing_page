@@ -1,0 +1,28 @@
+{
+  "name": "doctype_admin/landing_page",
+  "description": "Landing Page SPA of Doctype Admin Panel",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pratik Shrestha",
+      "email": "pratikdai404@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "orchestra/testbench": "5.x-dev",
+    "livewire/livewire": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "doctype_admon\\Landing\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "doctype_admin\\Landing\\LandingServiceProvider"
+      ]
+    }
+  }
+}
