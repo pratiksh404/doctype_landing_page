@@ -1,16 +1,16 @@
 <?php
 
-namespace doctype_admon\Landing\Http\Controllers\Backend;
+namespace doctype_admin\Landing\Http\Controllers;
 
-use doctype_admon\Landing\Models\Landing;
+use doctype_admin\Landing\Models\Landing;
 use Illuminate\Routing\Controller;
 
-class LandingController extends Controller
+class LandingSettingController extends Controller
 {
     public function index()
     {
-        $spa = Landing::all();
-        return view('landing:landing_setting.index', compact('landing'));
+        /*  $landing_setting = Landing::all(); */
+        return view('landing::backend.landing_setting.index'/* , compact('landing_setting') */);
     }
 
     public function update(Request $request, Landing $landing)
@@ -20,11 +20,7 @@ class LandingController extends Controller
         return redirect('/landing_setting');
     }
 
-    public function delete(Landing $landing)
-    {
-        $landing->delete();
-        return redirect('/landing_setting');
-    }
+
 
     private function validateData()
     {

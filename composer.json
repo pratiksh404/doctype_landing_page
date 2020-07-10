@@ -15,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "doctype_admon\\Landing\\": "src/"
+      "doctype_admin\\Landing\\": "src/"
     }
   },
   "extra": {

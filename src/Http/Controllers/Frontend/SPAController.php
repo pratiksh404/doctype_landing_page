@@ -1,6 +1,6 @@
 <?php
 
-namespace doctype_admon\Landing\Http\Controllers;
+namespace doctype_admin\Landing\Http\Controllers\Frontend;
 
 use Illuminate\Routing\Controller;
 

@@ -4,7 +4,7 @@ namespace doctype_admin\Landing\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Landing extends Model
+class Service extends Model
 {
     protected $guarded = [];
 }

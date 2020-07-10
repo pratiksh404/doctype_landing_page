@@ -1,6 +1,6 @@
 <?php
 
-namespace doctype_admon\Landing;
+namespace doctype_admin\Landing;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
