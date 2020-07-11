@@ -9,7 +9,7 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        return view('landing::backend.service.index');
+        return view('landing::backend.landing_service.index');
     }
 
     public function update(Request $request, Service $service)

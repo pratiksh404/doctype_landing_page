@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateServicesTable extends Migration
+class CreateFeaturesTable extends Migration
 {
     /**
      *
@@ -13,13 +13,14 @@ class CreateServicesTable extends Migration
      *@return void
      *
      */
+
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('features', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('service_name');
-            $table->string('service_excerpt');
-            $table->string('service_icon')->default('fas fa-concierge-bell');
+            $table->string('feature_name');
+            $table->string('feature_image');
+            $table->text('feature_about');
             $table->timestamps();
         });
     }
@@ -31,8 +32,9 @@ class CreateServicesTable extends Migration
      *@return void
      *
      */
-    public function down()
+
+    public function doen()
     {
-        Schema::drop('services');
+        Schema::drop('features');
     }
 }

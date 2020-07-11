@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/landing_setting', 'LandingSettingController');
 
 Route::resource('/service', 'ServiceController');
+
+Route::resource('/feature', 'FeatureController');
