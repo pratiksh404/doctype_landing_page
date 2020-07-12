@@ -56,26 +56,38 @@
                             <tr>
                                 <th>id</th>
                                 <th>Feature Name</th>
-                                <th>Feature About</th>
                                 <th>Feature Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
+                            @foreach ($features as $feature)
                             <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <th>{{$feature->id}}</th>
+                                <th>{{$feature->feature_name}}</th>
+                                <th>
+                                    <img src="{{asset('/storage').'/'.$feature->feature_image}}"
+                                        alt="{{$feature->feature_name}}" class="img-fluid">
+                                </th>
                                 <th>
                                 <td class="d-flex justify-content-around">
-                                    {{--      <a href="{{url(config('landing.prefix','admin').'/'.'feature').'/'.$feature->id}}"
-                                    class="btn btn-sm btn-primary" target="_blank" title="Show feature"><i
-                                        class="fas fa-eye"></i></a>
-                                    <a href="{{url(config('landing.prefix','admin').'/'.'feature').'/'.$feature->id.'/edit'}}"
-                                        target="_blank" class="btn btn-sm btn-warning" title="Edit feature"><i
-                                            class="fas fa-edit"></i></a>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#show-feature-{{$feature->id}}">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-success" data-toggle="modal"
+                                        data-target="#edit-feature-{{$feature->id}}">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+
+                                    {{-- Edit Feature Model --}}
+                                    @include('landing::backend.layouts.landing_feature.edit_model')
+                                    {{-- End Edit Feature Model --}}
+                                    {{-- Show Feature Model --}}
+                                    @include('landing::backend.layouts.landing_feature.show_model')
+                                    {{-- End Show Feature Model --}}
+
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
                                         data-target="#feature-{{$feature->id}}">
                                         <i class="fas fa-trash"></i>
@@ -86,13 +98,13 @@
                                 </td>
                                 </th>
                             </tr>
+                            @endforeach
 
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>id</th>
                                 <th>Feature Name</th>
-                                <th>Feature About</th>
                                 <th>Feature Image</th>
                                 <th>Action</th>
                             </tr>
@@ -106,53 +118,9 @@
     </div>
 </section>
 
-{{-- Create feature Model --}}
-
-<div class="modal fade" id="create-feature">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Create App Feature</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{url('/feature')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <label for="feature_name">Feature Name</label>
-                            <input type="text" name="feature_name" id="feature_name" class="form-control"
-                                value="{{$feature->feature_name ?? old('feature_name')}}" placeholder="Feature Name">
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="feature_img">Feature Image</label>
-                            <br>
-                            <input type="file" name="feature_img" id="feature_img" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <label for="feature_about">Feature About</label>
-                            <input type="text" name="feature_about" id="feature_about" class="form-control"
-                                value="{{$feature->feature_excerpt ?? old('feature_about')}}"
-                                placeholder="Feature About">
-                        </div>
-                    </div>
-
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-            </form>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+{{-- Create Feature Model --}}
+@include('landing::backend.layouts.landing_feature.create_model')
+{{-- End Create Feature Model --}}
 
 
 
@@ -165,6 +133,8 @@
 @section('js')
 <script>
     $(function () {
+        //Intialize Summernote Text Editor
+            $('.textarea').summernote();
         // Datatable
     $("#datatable").DataTable({
       "responsive": true,

@@ -42,7 +42,9 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <form action="{{url('/landing_page/1')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url(config('landing.prefix','admin').'/landing_setting/1')}}" method="POST"
+                enctype="multipart/form-data">
+                @method('PATCH')
                 @csrf
                 <div class="row" style="height: 70vh">
 
@@ -51,22 +53,23 @@
                             <div class="card-body">
                                 <div class="text-center">
                                     <img class="profile-user-img img-fluid img-circle"
-                                        src="https://mcdn.wallpapersafari.com/medium/5/88/aEFcRk.jpg"
+                                        src="{{$landing_setting->landing_logo ? asset('storage').'/'.$landing_setting->landing_logo : ''}}"
                                         alt="Landing Page Logo">
                                 </div>
                                 <br>
-                                <input type="file" name="landing_logo" id="Landing Page Favicon">
+                                <input type="file" name="landing_logo" id="Landing Page Logo">
                                 <hr>
                                 <div class="text-center">
                                     <img class="profile-user-img img-fluid img-circle"
-                                        src="https://mcdn.wallpapersafari.com/medium/5/88/aEFcRk.jpg"
-                                        alt="Landing Page Logo" style="width:4vw;height:auto">
+                                        src="{{$landing_setting->landing_favicon ? asset('storage').'/'.$landing_setting->landing_favicon : ''}}"
+                                        alt="Landing Page Favicon" style="width:4vw;height:auto">
                                 </div>
                                 <br>
                                 <input type="file" name="landing_favicon" id="landing_favicon">
                                 <hr>
-                                <img src="https://wallpaperplay.com/walls/full/d/9/a/15054.jpg" class="img-fluid"
-                                    name="landing_app_img" id="landing_app_img" alt="Landing App Image">
+                                <img src="{{$landing_setting->landing_app_img ? asset('storage').'/'.$landing_setting->landing_app_img : ''}}"
+                                    class="img-fluid" name="landing_app_img" id="landing_app_img"
+                                    alt="Landing App Image">
                                 <br><br>
                                 <input type="file" name="landing_app_img" id="landing_app_img">
                                 <br><br>
@@ -105,8 +108,8 @@
                                 <div class="row">
                                     <div class="col-lg-6" style="padding:1em">
                                         <div class="row">
-                                            <label for="landing_excerpt">Landing Page Excerpt</label>
-                                            <br>
+                                            <label>Landing Page Excerpt</label>
+                                            <br><br>
                                             <textarea name="landing_excerpt" id="landing_excerpt" cols="45"
                                                 rows="5">{{$landing_setting->landing_excerpt ?? old('landing_excerpt')}}</textarea>
                                         </div>
