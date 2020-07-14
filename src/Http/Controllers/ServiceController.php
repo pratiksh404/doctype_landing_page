@@ -2,26 +2,34 @@
 
 namespace doctype_admin\Landing\Http\Controllers;
 
-use doctype_admin\Landing\Models\Service;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use doctype_admin\Landing\Models\Service;
 
 class ServiceController extends Controller
 {
     public function index()
     {
-        return view('landing::backend.landing_service.index');
+        $services = Service::all();
+        return view('landing::backend.landing_service.index', compact('services'));
+    }
+
+    public function store(Request $request)
+    {
+        Service::create($this->validateData());
+        return redirect(config('landing.prefix', 'admin') . '/service');
     }
 
     public function update(Request $request, Service $service)
     {
         $service->update($this->validateData());
-        return redirect('/service');
+        return redirect(config('landing.prefix', 'admin') .  '/service');
     }
 
     public function destroy(Service $service)
     {
         $service->delete();
-        return redirect('/service');
+        return redirect(config('landing.prefix', 'admin') . '/service');
     }
 
     private function validateData()

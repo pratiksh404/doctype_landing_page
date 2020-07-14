@@ -18,7 +18,7 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('service_name');
-            $table->string('service_excerpt');
+            $table->text('service_excerpt');
             $table->string('service_icon')->default('fas fa-concierge-bell');
             $table->timestamps();
         });

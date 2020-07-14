@@ -19,3 +19,5 @@ Route::resource('/landing_setting', 'LandingSettingController');
 Route::resource('/service', 'ServiceController');
 
 Route::resource('/feature', 'FeatureController');
+
+Route::resource('/plan', 'PlanController');

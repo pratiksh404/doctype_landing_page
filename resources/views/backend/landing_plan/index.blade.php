@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Show Service')
+@section('title', 'Show Plan')
 
 
 @section('content_header')
@@ -9,18 +9,17 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Landing Page Service</h1>
+                <h1>Landing Page Plan</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a
                             href="{{ url(config('landing.prefix','admin').'/'.'dashboard') }}">Home</a>
                     </li>
-                    <li class="breadcrumb-item"><a
-                            href="{{ url(config('landing.prefix','admin').'/'.'service') }}">Landing
-                            Service</a>
+                    <li class="breadcrumb-item"><a href="{{ url(config('landing.prefix','admin').'/'.'plan') }}">Landing
+                            plan</a>
                     </li>
-                    <li class="breadcrumb-item active">Landing Page Service</li>
+                    <li class="breadcrumb-item active">Landing Page Plan</li>
                 </ol>
             </div>
         </div>
@@ -36,10 +35,10 @@
             <div class="card card-outline card-primary">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <h3 class="card-title">Services of {{$landing->landing_name ?? 'Doctype Admin Landing Page'}}
+                        <h3 class="card-title">plans of {{$landing->landing_name ?? 'Doctype Admin Landing Page'}}
                         </h3>
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#create-service">
-                            Create App Service
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#create-plan">
+                            Create App Plan
                         </button>
                     </div>
                     <div class="card-tools">
@@ -55,45 +54,49 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>Service Name</th>
-                                <th>Service Icon</th>
+                                <th>Plan Name</th>
+                                <th>Plan Period</th>
+                                <th>Plan Currency Symbol</th>
+                                <th>Plan Price</th>
+                                <th>Plan Color</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            @if (count($services) > 0)
-                            @foreach ($services as $service)
+                            @if (count($plans) > 0)
+                            @foreach ($plans as $plan)
                             <tr>
-                                <td>{{$service->id}}</td>
-                                <td>{{$service->service_name}}</td>
-                                <td>
-                                    <i class="{{$service->service_icon}}" style="font-size: 5em"></i>
-                                </td>
+                                <td>{{$plan->id}}</td>
+                                <td>{{$plan->plan_name}}</td>
+                                <td>{{$plan->plan_period}}</td>
+                                <td>{{$plan->plan_currency_symbol}}</td>
+                                <td>{{$plan->plan_price}}</td>
+                                <td>{{$plan->plan_color}}</td>
 
                                 <td class="d-flex justify-content-around">
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#show-service-{{$service->id}}">
+                                        data-target="#show-plan-{{$plan->id}}">
                                         <i class="fas fa-eye"></i>
                                     </button>
                                     <button type="button" class="btn btn-success" data-toggle="modal"
-                                        data-target="#edit-service-{{$service->id}}">
+                                        data-target="#edit-plan-{{$plan->id}}">
                                         <i class="fas fa-edit"></i>
                                     </button>
 
-                                    {{-- Edit Service Model --}}
-                                    @include('landing::backend.layouts.landing_service.edit_model')
-                                    {{-- End Edit Service Model --}}
-                                    {{-- Show Service Model --}}
-                                    @include('landing::backend.layouts.landing_service.show_model')
-                                    {{-- End Show Service Model --}}
+                                    {{-- Edit plan Model --}}
+                                    @include('landing::backend.layouts.landing_plan.edit_model')
+                                    {{-- End Edit plan Model --}}
+                                    {{-- Show plan Model --}}
+                                    @include('landing::backend.layouts.landing_plan.show_model')
+                                    {{-- End Show plan Model --}}
 
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
-                                        data-target="#service-{{$service->id}}">
+                                        data-target="#plan-{{$plan->id}}">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                     {{-- Delete Model --}}
-                                    @include('landing::backend.layouts.landing_service.confirm_delete')
+                                    @include('landing::backend.layouts.landing_plan.confirm_delete')
                                     <!-- /.modal -->
                                 </td>
 
@@ -105,8 +108,11 @@
                         <tfoot>
                             <tr>
                                 <th>id</th>
-                                <th>Service Name</th>
-                                <th>Service Icon</th>
+                                <th>Plan Name</th>
+                                <th>Plan Period</th>
+                                <th>Plan Currency Symbol</th>
+                                <th>Plan Price</th>
+                                <th>Plan Color</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -119,9 +125,9 @@
     </div>
 </section>
 
-{{-- Create Service Model --}}
-@include('landing::backend.layouts.landing_service.create_model')
-{{-- End Create Service Model --}}
+{{-- Create plan Model --}}
+@include('landing::backend.layouts.landing_plan.create_model')
+{{-- End Create plan Model --}}
 
 
 
@@ -134,6 +140,7 @@
 @section('js')
 <script>
     $(function () {
+        
         //Intialize Summernote Text Editor
             $('.textarea').summernote();
         // Datatable
@@ -144,5 +151,8 @@
       "info": true,
     });
   });
+
+
+  
 </script>
 @stop

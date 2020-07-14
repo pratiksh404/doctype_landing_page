@@ -62,6 +62,7 @@
                         </thead>
                         <tbody>
 
+                            @if (count($features) > 0)
                             @foreach ($features as $feature)
                             <tr>
                                 <th>{{$feature->id}}</th>
@@ -99,6 +100,7 @@
                                 </th>
                             </tr>
                             @endforeach
+                            @endif
 
                         </tbody>
                         <tfoot>
