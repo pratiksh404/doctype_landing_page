@@ -8,11 +8,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{url(config('landing.prefix', 'admin') . '/' .'service')}}" method="POST"
+                <form action="{{url(config('landing.prefix', 'admin') . '/' .'plan')}}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
-
-
+                    @include('landing::backend.layouts.landing_plan.edit_add')
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

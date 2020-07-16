@@ -17,7 +17,7 @@
                             href="{{ url(config('landing.prefix','admin').'/'.'dashboard') }}">Home</a>
                     </li>
                     <li class="breadcrumb-item"><a href="{{ url(config('landing.prefix','admin').'/'.'plan') }}">Landing
-                            plan</a>
+                            Plan</a>
                     </li>
                     <li class="breadcrumb-item active">Landing Page Plan</li>
                 </ol>
@@ -35,7 +35,7 @@
             <div class="card card-outline card-primary">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <h3 class="card-title">plans of {{$landing->landing_name ?? 'Doctype Admin Landing Page'}}
+                        <h3 class="card-title">Plans of {{$landing->landing_name ?? 'Doctype Admin Landing Page'}}
                         </h3>
                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#create-plan">
                             Create App Plan
@@ -72,7 +72,7 @@
                                 <td>{{$plan->plan_period}}</td>
                                 <td>{{$plan->plan_currency_symbol}}</td>
                                 <td>{{$plan->plan_price}}</td>
-                                <td>{{$plan->plan_color}}</td>
+                                <td style="background-color:{{$plan->plan_color}}"></td>
 
                                 <td class="d-flex justify-content-around">
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -88,7 +88,7 @@
                                     @include('landing::backend.layouts.landing_plan.edit_model')
                                     {{-- End Edit plan Model --}}
                                     {{-- Show plan Model --}}
-                                    @include('landing::backend.layouts.landing_plan.show_model')
+                                    {{--  @include('landing::backend.layouts.landing_plan.show_model') --}}
                                     {{-- End Show plan Model --}}
 
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
@@ -152,7 +152,32 @@
     });
   });
 
+//Colorpicker
+    $('.my-colorpicker1').colorpicker();
 
+    $(document).ready(function(){
+        $('#add_service').click(function(){
+            var html = '';
+            html += '<div id="service_row">';
+            html += '<div class="row">';
+            html += '<div class="col-lg-10">';
+            html += '<input type="text" name="plan_services[]" class="form-control" <input type="text" name="plan_services[]" class="form-control" value="{{old('plan_services')}}" placeholder="Plan Service">';
+            html += '</div>';
+            html += '<div class="col-lg-2 d-flex justify-content-between">';
+            html += '<button class="btn btn-danger" id="delete_service"><i class="fas fa-trash"></i></button>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            html += '<br>';
+
+            $('#new_service').append(html);
+        });
+
+        // remove row
+                $(document).on('click', '#delete_service', function () {
+                $(this).closest('#service_row').remove();
+                });
+    });
   
 </script>
 @stop
