@@ -2,6 +2,9 @@
 @if (count($features) > 0)
 <section class="made_life_area p_120">
     <div class="container">
+        <div class="main_title">
+            <h2>Features</h2>
+        </div>
         <div class="made_life_inner">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 @foreach ($features as $feature)

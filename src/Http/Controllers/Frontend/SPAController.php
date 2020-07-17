@@ -11,6 +11,11 @@ class SPAController extends Controller
         return view('landing::frontend.index');
     }
 
+    public function about()
+    {
+        return view('landing::frontend.about');
+    }
+
     public function contact()
     { }
 

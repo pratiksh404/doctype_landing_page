@@ -4,11 +4,13 @@
 namespace doctype_admin\Landing\Http\Livewire;
 
 use Livewire\Component;
+use doctype_admin\Landing\Models\Landing;
 
 class Mobile extends Component
 {
     public function render()
     {
-        return view('landing::frontend.livewire.mobile');
+        $landing = Landing::all(['landing_android_app', 'landing_ios_app']);
+        return view('landing::frontend.livewire.mobile', compact('landing'));
     }
 }

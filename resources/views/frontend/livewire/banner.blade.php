@@ -10,7 +10,7 @@
                             packages' : ''}}
                         </p>
                         @if ($landing)
-                        <a class="banner_btn" href="{{$landing->landing_documentation ?? ''}}">Get Started</a>
+                        <a class="banner_btn" href="{{$landing->landing_documentation ?? url('/doc')}}">Get Started</a>
                         <a class="banner_btn2" href="{{$landing->landing->download ?? ''}}">Download</a>
                         @endif
 

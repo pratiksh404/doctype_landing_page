@@ -2,15 +2,16 @@
 
 namespace doctype_admin\Landing;
 
-use doctype_admin\Landing\Http\Livewire\Banner;
-use doctype_admin\Landing\Http\Livewire\Feature;
-use doctype_admin\Landing\Http\Livewire\Footer;
-use doctype_admin\Landing\Http\Livewire\Mobile;
-use doctype_admin\Landing\Http\Livewire\Plan;
-use doctype_admin\Landing\Http\Livewire\Service;
+use Livewire\Livewire;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Livewire\Livewire;
+use doctype_admin\Landing\Models\Landing;
+use doctype_admin\Landing\Http\Livewire\Plan;
+use doctype_admin\Landing\Http\Livewire\Banner;
+use doctype_admin\Landing\Http\Livewire\Mobile;
+use doctype_admin\Landing\Http\Livewire\Feature;
+use doctype_admin\Landing\Http\Livewire\Service;
 
 class LandingServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,7 @@ class LandingServiceProvider extends ServiceProvider
         }
         $this->registerResources();
         $this->registerComponents();
+        $this->registerViewComposer();
     }
 
     public function register()
@@ -83,7 +85,13 @@ class LandingServiceProvider extends ServiceProvider
         Livewire::component('service', Service::class);
         Livewire::component('feature', Feature::class);
         Livewire::component('plan', Plan::class);
-        Livewire::component('footer', Footer::class);
         Livewire::component('mobile', Mobile::class);
+    }
+
+    public function registerViewComposer()
+    {
+        view()->composer('landing::frontend.layouts.app', function ($view) {
+            $view->with('landing', Landing::first(['landing_about', 'landing_facebook', 'landing_instagram', 'landing_messenger', 'landing_github', 'landing_linkedin', 'landing_email', 'landing_patreon']));
+        });
     }
 }

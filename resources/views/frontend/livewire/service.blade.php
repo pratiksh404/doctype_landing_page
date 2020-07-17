@@ -2,8 +2,10 @@
     <div class="container">
         <div class="main_title">
             <h2>Services</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+            <p>
+                {{config('landing.service_description','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation.')}}
+            </p>
         </div>
         <div class="work_inner row">
             @if (isset($services))

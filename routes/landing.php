@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'SPAController@home');
+
+Route::get('/about', 'SPAController@about');
