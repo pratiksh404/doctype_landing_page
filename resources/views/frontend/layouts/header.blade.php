@@ -3,7 +3,9 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container box_1620">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="{{url('/')}}"><img src="img/logo.png" alt=""></a>
+                <a class="navbar-brand logo_h" href="{{url('/')}}"><img
+                        src="{{\doctype_admin\Landing\Models\Landing::first()->landing_logo ? asset('storage'.'/'.\doctype_admin\Landing\Models\Landing::first()->landing_logo) : asset('vendor/landing/img/logo.png')}}"
+                        alt="{{\doctype_admin\Landing\Models\Landing::first()->landing_name ?? config('landing.app_name','Doctype Admin')}}"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -16,15 +18,6 @@
                     <ul class="nav navbar-nav menu_nav justify-content-center">
                         <li class="nav-item active"><a class="nav-link" href="{{url('/')}}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url('/about')}}">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a>
-                        <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-haspopup="true" aria-expanded="false">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="price.html">Pricing</a>
-                                <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-                            </ul>
-                        </li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                 aria-haspopup="true" aria-expanded="false">Blog</a>
@@ -34,7 +27,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url('/contact')}}">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <div class="d-flex justify-content-around">

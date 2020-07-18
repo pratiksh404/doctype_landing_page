@@ -75,7 +75,15 @@ class LandingSettingController extends Controller
                 $field => request()->file($field)->store('uploads/landing', 'public'),
             ]);
 
-            $img = Image::make(request()->file($field)->getRealPath())->fit(500, 500);
+            if ($field == 'landing_logo') {
+                $img = Image::make(request()->file($field)->getRealPath())->fit(100, 100);
+            }
+            if ($field == 'landing_favicon') {
+                $img = Image::make(request()->file($field)->getRealPath())->fit(50, 50);
+            }
+            if ($field == 'landing_app_img') {
+                $img = Image::make(request()->file($field)->getRealPath())->fit(800, 600);
+            }
             $img->save(public_path('storage/' . $landing->$field), 80);
         }
     }

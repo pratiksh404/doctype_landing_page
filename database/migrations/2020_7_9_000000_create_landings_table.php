@@ -35,7 +35,6 @@ class CreateLandingsTable extends Migration
             $table->string('landing_web_app')->nullable();
             $table->string('landing_android_app')->nullable();
             $table->string('landing_ios_app')->nullable();
-            $table->string('landing_documentation')->nullable();
             $table->string('landing_trial')->nullable();
             $table->string('landing_app_img')->nullable();
             $table->string('landing_app_video')->nullable();

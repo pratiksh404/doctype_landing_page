@@ -17,8 +17,7 @@ class SPAController extends Controller
     }
 
     public function contact()
-    { }
-
-    public function projects()
-    { }
+    {
+        return view('landing::frontend.contact');
+    }
 }

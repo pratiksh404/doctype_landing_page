@@ -19,6 +19,10 @@
 </section>
 <!--================End Home Banner Area =================-->
 
+{{-- ===============Start About App Area================ --}}
+@livewire('about')
+{{-- =================================================== --}}
+
 <!--================Feature Area =================-->
 @livewire('feature')
 <!--================End Feature Area =================-->
@@ -28,40 +32,6 @@
 <!--================End Screen Area =================-->
 
 <!--================Made Life Area =================-->
-<section class="made_life_area p_120">
-    <div class="container">
-        <div class="made_life_inner">
-            <div class="row made_life_text">
-                <div class="col-lg-6">
-                    <div class="left_side_text">
-                        <h3>We’ve made a life <br />that will change you</h3>
-                        <h6>We are here to listen from you deliver exellence</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-                        <a class="main_btn" href="#">Get Started Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="chart_img">
-                        <img class="img-fluid" src="img/browser.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@include('landing::frontend.layouts.app_description_2')
 <!--================End Made Life Area =================-->
-
-<!--================Impress Area =================-->
-<section class="impress_area p_120">
-    <div class="container">
-        <div class="impress_inner">
-            <h2>Got Impressed to our features?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-            <a class="banner_btn2" href="#">Request Free Demo</a>
-        </div>
-    </div>
-</section>
-<!--================End Impress Area =================-->
 @endsection

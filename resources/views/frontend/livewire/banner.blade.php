@@ -4,7 +4,8 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="banner_content">
-                        <h2>{{$landing ? $landing->landing_name ?? 'Doctype Admin' : 'Doctype Admin'}}</h2>
+                        <h2>{{$landing ? $landing->landing_name ?? config('landing.app_name','Doctype Admin') : 'Doctype Admin'}}
+                        </h2>
                         <p>
                             {{$landing ? $landing->landing_excerpt ?? 'Laravel Admin Panel for lazy developers containing role and permission management, user management and integratable
                             packages' : ''}}
