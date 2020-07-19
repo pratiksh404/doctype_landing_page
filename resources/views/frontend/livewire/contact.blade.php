@@ -2,10 +2,8 @@
     <div class="container">
 
         <div class="embed-responsive embed-responsive-21by9">
-            <iframe class="embed-responsive-item"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14162.473808096545!2d83.2412452362618!3d27.449999276385558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3996eb334fe91fc1%3A0x5793b8b9b8917fcd!2sLumbini%2032900%2C%20Nepal!5e0!3m2!1sen!2sus!4v1595060232979!5m2!1sen!2sus"
-                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-                tabindex="0"></iframe>
+            <iframe class="embed-responsive-item" src="{{$landing->landing_google_map ?? ''}}" width="600" height="450"
+                frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
         <hr>
         <div class="row">

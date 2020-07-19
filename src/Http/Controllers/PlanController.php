@@ -19,6 +19,11 @@ class PlanController extends Controller
         return redirect(config('landing.prefix', 'admin') .  '/plan');
     }
 
+    public function edit(Plan $plan)
+    {
+        return view('landing::backend.landing_plan.edit', compact('plan'));
+    }
+
     public function update(Plan $plan)
     {
         $plan->update($this->validateData());

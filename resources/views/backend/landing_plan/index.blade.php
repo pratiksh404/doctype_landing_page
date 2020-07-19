@@ -79,16 +79,12 @@
                                         data-target="#show-plan-{{$plan->id}}">
                                         <i class="fas fa-eye"></i>
                                     </button>
-                                    <button type="button" class="btn btn-success" data-toggle="modal"
-                                        data-target="#edit-plan-{{$plan->id}}">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
+                                    <a class="btn btn-success"
+                                        href="{{url(config('landing.prefix', 'admin') . '/' .'plan'). '/' .$plan->id.'/edit'}}"><i
+                                            class="fas fa-edit"></i></a>
 
-                                    {{-- Edit plan Model --}}
-                                    @include('landing::backend.layouts.landing_plan.edit_model')
-                                    {{-- End Edit plan Model --}}
                                     {{-- Show plan Model --}}
-                                    {{--  @include('landing::backend.layouts.landing_plan.show_model') --}}
+                                    @include('landing::backend.layouts.landing_plan.show_model')
                                     {{-- End Show plan Model --}}
 
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
@@ -156,22 +152,23 @@
     $('.my-colorpicker1').colorpicker();
 
     $(document).ready(function(){
-        $('#add_service').click(function(){
-            var html = '';
-            html += '<div id="service_row">';
-            html += '<div class="row">';
+ 
+ $('#add_service').click(function(){
+    var html = '';
+    html += '<div class="service_row">';
+        html += '<div class="row">';
             html += '<div class="col-lg-10">';
-            html += '<input type="text" name="plan_services[]" class="form-control" <input type="text" name="plan_services[]" class="form-control" value="{{old('plan_services')}}" placeholder="Plan Service">';
-            html += '</div>';
+                html += '<input type="text" name="plan_services[]" class="form-control" <input type="text" name="plan_services[]" class="form-control" value="{{old('plan_services')}}" placeholder="Plan Service">';
+                html += '</div>';
             html += '<div class="col-lg-2 d-flex justify-content-between">';
-            html += '<button class="btn btn-danger" id="delete_service"><i class="fas fa-trash"></i></button>';
+                html += '<button class="btn btn-danger" class="delete_service"><i class="fas fa-trash"></i></button>';
+                html += '</div>';
             html += '</div>';
-            html += '</div>';
-            html += '</div>';
-            html += '<br>';
-
-            $('#new_service').append(html);
-        });
+        html += '</div>';
+    html += '<br>';
+    
+    $('#new_service').append(html);
+    });
 
         // remove row
                 $(document).on('click', '#delete_service', function () {

@@ -49,7 +49,7 @@
                 <div class="row" style="height: 70vh">
 
                     <div class="col-lg-3">
-                        <div class="card card-outline card-primary" style="height: 68vh">
+                        <div class="card card-outline card-primary" style="height: 68vh;overflow-y:scroll">
                             <div class="card-body">
                                 <div class="text-center">
                                     <img class="profile-user-img img-fluid img-circle"
@@ -211,12 +211,7 @@
                                                 value="{{$landing_setting->landing_ios_app ?? old('landing_ios_app')}}"
                                                 class="form-control" placeholder="IOS App Link">
                                         </div>
-                                        <div class="row">
-                                            <label for="landing_documentation">App Documentation Link</label>
-                                            <input type="text" name="landing_documentation" id="landing_documentation"
-                                                value="{{$landing_setting->landing_documentation ?? old('landing_documentation')}}"
-                                                class="form-control" placeholder="App Documentation Link">
-                                        </div>
+
                                         <div class="row">
                                             <label for="landing_trial">App Trial Link</label>
                                             <input type="text" name="landing_trial" id="landing_trial"

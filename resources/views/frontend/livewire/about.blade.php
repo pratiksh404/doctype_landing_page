@@ -5,10 +5,14 @@
             <p>
                 {{$landing->landing_excerpt ?? ''}}
             </p>
-            <p>
-                {!! $landing->landing_about ?? '' !!}
-            </p>
         </div>
+
+        <p>
+            {!! $landing->landing_about ?? '' !!}
+        </p>
+
+        <hr>
+
         <img src="{{$landing->landing_app_img ? asset('storage').'/'.$landing->landing_app_img : ''}}"
             alt="{{$landing->landing_name ?? config('landing.app_name','Doctype Admin')}}" class="img-fluid">
         <hr>

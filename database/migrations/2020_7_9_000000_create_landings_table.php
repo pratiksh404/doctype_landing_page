@@ -29,7 +29,7 @@ class CreateLandingsTable extends Migration
             $table->string('landing_linkedin')->nullable();
             $table->string('landing_email')->nullable();
             $table->string('landing_patreon')->nullable();
-            $table->string('landing_google_map')->nullable();
+            $table->text('landing_google_map')->nullable();
             $table->string('landing_location')->nullable();
             $table->string('landing_contact')->nullable();
             $table->string('landing_web_app')->nullable();

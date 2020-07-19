@@ -33,7 +33,7 @@ class LandingSettingController extends Controller
                 [
                     'landing_name' => 'max:100',
                     'landing_excerpt' => 'max:255',
-                    'landing_about' => 'max:5000',
+                    'landing_about' => 'sometimes',
                     'landing_facebook' => 'max:255',
                     'landing_instagram' => 'max:255',
                     'landing_messenger' => 'max:255',
@@ -41,13 +41,12 @@ class LandingSettingController extends Controller
                     'landing_linkedin' => 'max:255',
                     'landing_email' => 'max:255',
                     'landing_patreon' => 'max:255',
-                    'landing_google_map' => 'max:255',
+                    'landing_google_map' => 'max:800',
                     'landing_location' => 'max:255',
                     'landing_contact' => 'max:255',
                     'landing_web_app' => 'max:255',
                     'landing_android_app' => 'max:255',
                     'landing_ios_app' => 'max:255',
-                    'landing_documentation' => 'max:255',
                     'landing_trial' => 'max:255',
                     'landing_app_video' => 'max:255'
                 ]

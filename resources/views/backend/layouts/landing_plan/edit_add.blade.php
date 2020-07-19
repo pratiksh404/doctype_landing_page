@@ -47,6 +47,7 @@
         </div>
     </div>
 </div>
+
 @if (isset($plan->plan_services))
 <br>
 @foreach ($plan->plan_services as $service)
@@ -54,7 +55,7 @@
 <div id="service_row">
     <div class="row">
         <div class="col-lg-10">
-            <input type="text" name="plan_services[]" class="form-control" value="{{$service ?? old('plan_services')}}"
+            <input type="text" name="plan_services[]" class="form-control" value="{{$service ?? ''}}"
                 placeholder="Plan Service">
         </div>
         <div class=" col-lg-2 d-flex justify-content-between">
