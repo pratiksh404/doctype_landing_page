@@ -18,3 +18,5 @@ Route::get('/', 'SPAController@home');
 Route::get('/about', 'SPAController@about');
 
 Route::get('/contact', 'SPAController@contact');
+
+Route::post('/contact', 'SPAController@saveContact');

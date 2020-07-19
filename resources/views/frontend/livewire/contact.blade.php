@@ -29,24 +29,29 @@
                 </div>
             </div>
             <div class="col-lg-9">
-                <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+                @if ($message = Session::has('success'))
+                <a href="#" class="genric-btn info radius">{{$message}}</a>
+                @endif
+                <form class="row contact_form" action="{{url('/contact')}}" method="post" id="contactForm"
                     novalidate="novalidate">
+                    @csrf
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                            <input type="text" class="form-control" id="name" name="contact_name"
+                                placeholder="Enter your name">
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" name="email"
+                            <input type="email" class="form-control" id="email" name="contact_email"
                                 placeholder="Enter email address">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="subject" name="subject"
+                            <input type="text" class="form-control" id="subject" name="contact_subject"
                                 placeholder="Enter Subject">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <textarea class="form-control" name="message" id="message" rows="1"
+                            <textarea class="form-control" name="contact_message" id="message" rows="1"
                                 placeholder="Enter Message"></textarea>
                         </div>
                     </div>

@@ -21,3 +21,5 @@ Route::resource('/service', 'ServiceController');
 Route::resource('/feature', 'FeatureController');
 
 Route::resource('/plan', 'PlanController');
+
+Route::get('/contact', 'ContactController');
