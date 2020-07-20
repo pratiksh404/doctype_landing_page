@@ -5,6 +5,7 @@ namespace doctype_admin\Landing\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use doctype_admin\Landing\Models\Service;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ServiceController extends Controller
 {
@@ -17,18 +18,21 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         Service::create($this->validateData());
+        Alert::success('Landing Service Created', 'Success');
         return redirect(config('landing.prefix', 'admin') . '/service');
     }
 
     public function update(Request $request, Service $service)
     {
         $service->update($this->validateData());
+        Alert::info('Landing Service Updated', 'Success');
         return redirect(config('landing.prefix', 'admin') .  '/service');
     }
 
     public function destroy(Service $service)
     {
         $service->delete();
+        Alert::error('Landing Service Deleted', 'Success');
         return redirect(config('landing.prefix', 'admin') . '/service');
     }
 

@@ -4,6 +4,7 @@ namespace doctype_admin\Landing\Http\Controllers;
 
 use doctype_admin\Landing\Models\Plan;
 use Illuminate\Routing\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PlanController extends Controller
 {
@@ -16,6 +17,7 @@ class PlanController extends Controller
     public function store()
     {
         Plan::create($this->validateData());
+        Alert::success('Landing Plan Created', 'Success');
         return redirect(config('landing.prefix', 'admin') .  '/plan');
     }
 
@@ -27,12 +29,14 @@ class PlanController extends Controller
     public function update(Plan $plan)
     {
         $plan->update($this->validateData());
+        Alert::info('Landing Plan Updated', 'Success');
         return redirect(config('landing.prefix', 'admin') .  '/plan');
     }
 
     public function destroy(Plan $plan)
     {
         $plan->delete();
+        Alert::error('Landing Plan Deleted', 'Success');
         return redirect(config('landing.prefix', 'admin') .  '/plan');
     }
 

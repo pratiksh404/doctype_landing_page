@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="{{asset('vendor/landing/css/responsive.css')}}" data-turbolinks-track="reload"
     data-turbolinks-eval="reload">
 
+
 <style>
     .btn-store {
         color: #777777;

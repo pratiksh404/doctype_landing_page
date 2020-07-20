@@ -5,6 +5,7 @@ namespace doctype_admin\Landing\Http\Controllers\Frontend;
 use doctype_admin\Landing\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SPAController extends Controller
 {
@@ -26,7 +27,8 @@ class SPAController extends Controller
     public function saveContact(Request $request)
     {
         Contact::create($this->contactValidate());
-        return back()->with('success', 'Message Send !');
+        Alert::success('Message Send ! Thank you', 'We will be in touch.');
+        return redirect('/contact');
     }
 
     public function contactValidate()

@@ -4,8 +4,9 @@ namespace doctype_admin\Landing\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Intervention\Image\Facades\Image as Image;
+use RealRashid\SweetAlert\Facades\Alert;
 use doctype_admin\Landing\Models\Feature;
+use Intervention\Image\Facades\Image as Image;
 
 class FeatureController extends Controller
 {
@@ -19,6 +20,7 @@ class FeatureController extends Controller
     {
         $feature = Feature::create($this->validateData());
         $this->uploadImage($feature);
+        Alert::success('Landing Feature Created', 'Success');
         return redirect(config('landing.prefix', 'admin') . '/' . 'feature');
     }
 
@@ -26,12 +28,14 @@ class FeatureController extends Controller
     {
         $feature->update($this->validateData());
         $this->uploadImage($feature);
+        Alert::info('Landing Feature Updated', 'Success');
         return redirect('/feature');
     }
 
     public function destroy(Feature $feature)
     {
         $feature->delete();
+        Alert::error('Landing Feature Deleted', 'Success');
         return redirect(config('landing.prefix', 'admin') . '/' . 'feature');
     }
 

@@ -14,8 +14,8 @@ $factory->define(Landing::class, function (Faker $faker) {
         'landing_name' => 'Doctype Admin Panel',
         'landing_excerpt' => 'Laravel Admin Panel for lazy developers containing role and permission management, user management and integratable packages',
         'landing_about' => '',
-        'landing_logo' => '',
-        'landing_favicon' => '',
+        'landing_logo' => 'uploads/landing/logo.png',
+        'landing_favicon' => 'uploads/landing/logo.png',
         'landing_facebook' => 'https://www.facebook.com/doctypenepal/',
         'landing_instagram' => '',
         'landing_messenger' => 'm.me/doctypenepal',
@@ -30,7 +30,7 @@ $factory->define(Landing::class, function (Faker $faker) {
         'landing_android_app' => '',
         'landing_ios_app' => '',
         'landing_trial' => '',
-        'landing_app_img' => '',
+        'landing_app_img' => 'uploads/landing/landing_app_img.png',
         'landing_app_video' => 'https://www.youtube.com/embed/5g-yAFDbtlQ',
 
     ];

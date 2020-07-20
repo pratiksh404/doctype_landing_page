@@ -48,6 +48,9 @@ class LandingServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/assets' => public_path('vendor/landing')
         ], 'landing-frontend');
+        $this->publishes([
+            __DIR__ . '/../resources/assets/img' => public_path('storage/uploads/landing')
+        ], 'landing-img');
     }
 
     public function registerResources()
@@ -59,7 +62,11 @@ class LandingServiceProvider extends ServiceProvider
     }
 
     public function registerPublishing()
-    { }
+    {
+        $this->commands([
+            Console\DoctypeAdminLandingInstallerCommand::class
+        ]);
+    }
 
     public function registerRoutes()
     {

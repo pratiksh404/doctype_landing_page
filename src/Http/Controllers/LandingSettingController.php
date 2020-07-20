@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use doctype_admin\Landing\Models\Landing;
 use Intervention\Image\Facades\Image as Image;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LandingSettingController extends Controller
 {
@@ -21,6 +22,7 @@ class LandingSettingController extends Controller
         $landing = Landing::find($landing);
         $landing->update($this->validateData());
         $this->uploadImage($landing);
+        Alert::success("Landing Setting Saved", "Success");
         return redirect(config('landing.prefix', 'admin') . '/' . 'landing_setting');
     }
 

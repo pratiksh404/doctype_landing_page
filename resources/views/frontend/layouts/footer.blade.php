@@ -58,7 +58,6 @@
                         @if ($landing->landing_messenger)
                         <li><a href="{{$landing->landing_messenger}}"><i class="fa fa-facebook-messenger"></i></a></li>
                         @endif
-
                         @if ($landing->landing_github)
                         <li><a href="{{$landing->landing_github}}"><i class="fa fa-github"></i></a></li>
                         @endif

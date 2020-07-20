@@ -18,7 +18,7 @@
                     <ul class="nav navbar-nav menu_nav justify-content-center">
                         <li class="nav-item active"><a class="nav-link" href="{{url('/')}}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url('/about')}}">About</a></li>
-                        <li class="nav-item submenu dropdown">
+                        {{--           <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                 aria-haspopup="true" aria-expanded="false">Blog</a>
                             <ul class="dropdown-menu">
@@ -26,12 +26,12 @@
                                 <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li class="nav-item"><a class="nav-link" href="{{url('/contact')}}">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <div class="d-flex justify-content-around">
-                            <li class="nav-item"><a href="{{url('/doc')}}" class="tickets_btn">Docs</a></li>
+                            <li class="nav-item"><a href="{{url('/docs')}}" class="tickets_btn">Docs</a></li>
                             <li class="nav-item"><a href="{{url('/login')}}" class="tickets_btn"
                                     data-turbolinks="false">Login</a></li>
                             <li class="nav-item"><a href="{{url('/register')}}" class="tickets_btn"
